@@ -17,8 +17,12 @@ A set of examples of how to iFrame Pivot into your own app
     https://docs.imply.io/on-prem/quickstart
   
  - Navigate to imply-2.9.5/conf-quickstart/pivot/config.yaml and add `enableApiEndpoint: true`
+ 
+   ![photo of settings](images/code.png "enableApiEndpoint")
+
  - Open Localhost:9095 and from the side menu navigate to settings. UNuder setting select Api tokens and click on new token to generate an app token.
   
+  ![photo of ui-settings](images/settings.png "ui settings")
 ## Configuring a request 
 
    You can generate links that open to specific views to update iframe by POSTing to `http://localhost:9095/api/v1/mkurl`
