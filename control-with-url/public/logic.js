@@ -7,14 +7,11 @@ document.querySelector('#go').addEventListener('click', function(e) {
   };
 
   setUrl(request);
-
 });
-
-
 
 async function setUrl(request) {
   // Set Default Url
-  let url = 'http://localhost:9095/pivot/d/7ddc63f3f64b0aeb52/Wikipedia'
+  let url = 'http://localhost:9095/pivot/d/7ddc63f3f64b0aeb52/Wikipedia';
 
   // Fetch new Url
   let resp = await fetch('/mkurl', {

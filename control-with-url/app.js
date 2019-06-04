@@ -8,7 +8,6 @@ const port = 3000;
 app.use(express.static('public'));
 app.use(express.json());
 
-
 app.post("/mkurl", async function (req, res) {
 
   // Set request headers
