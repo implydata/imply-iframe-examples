@@ -24,12 +24,10 @@ async function setUrl(request) {
   })
 
   let json = await resp.json();
-
   // If the user input was not blank and a url was returned update the url
-  if (json.url && resp.input) {
+  if (json.url && request.input) {
     url = json.url
   }
-
   // Set New Src
   document.getElementById('pivot').src = url;
 }
