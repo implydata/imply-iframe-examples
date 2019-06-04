@@ -17,41 +17,43 @@ const headers = {
     "x-imply-api-token":"1a1b1cf8-fc83-495d-94d9-27f22836b81b"
 }
 let url;
-const essence = {
-    "dataCube": "druid_wikipedia",
+
+
+app.post("/mkurl", function (req, res) {
+    const essence = {
+        "dataCube": "druid_wikipedia",
         "filter": {
-        "clauses": [
-            {
-                "dimension": "__time",
-                "dynamic": {
-                    "op": "timeRange",
-                    "operand": {
-                        "op": "ref",
-                        "name": "m"
-                    },
-                    "duration": "P1D",
-                    "step": -1
-                }
-            },
-            {
-                "dimension": "page",
-                "action" : "overlap",
-                "exclude": false,
-                "values": {
-                    "elements" : [req.input]
+            "clauses": [
+                {
+                    "dimension": "__time",
+                    "dynamic": {
+                        "op": "timeRange",
+                        "operand": {
+                            "op": "ref",
+                            "name": "m"
+                        },
+                        "duration": "P1D",
+                        "step": -1
+                    }
                 },
-                "setType": "STRING",
-            }
-        ]
-    },
-    timezone: "Etc/UTC",
-    "splits": [],
+                {
+                    "dimension": "page",
+                    "action" : "overlap",
+                    "exclude": false,
+                    "values": {
+                        "elements" : [req.input]
+                    },
+                    "setType": "STRING",
+                }
+            ]
+        },
+        timezone: "Etc/UTC",
+        "splits": [],
         "pinnedDimensions": [],
         "settingsVersion" : null,
         "visualization": "totals"
-}
+    }
 
-app.post("/mkurl", function (req, res) {
   axios({
       url: 'http://localhost:9095/api/v1/mkurl',
       method: 'post',
