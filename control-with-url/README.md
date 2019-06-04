@@ -20,7 +20,7 @@ If the request has been successful and returns a URL then the src of the iframe 
  
    ![screenshot of settings](images/code.png "enableApiEndpoint")
 
- - Open Localhost:9095 and from the side menu navigate to settings. Under setting select API tokens and click on new token to generate an API token.
+ - Open Localhost:9095 and from the side menu navigate to settings. Under settings select API tokens and click on new token to generate an API token.
   
   ![screenshot of ui-settings](images/settings.png "ui settings")
 ## Configuring a request 
@@ -34,7 +34,7 @@ This a header for the request, and should be set to the API token generated in y
 `"x-imply-api-token":"1a1b1cf8-fc83-495d-94d9-27f22836b81b"`
 
 ###### Datacube: 
-This is the data source you are targeting. In Imply UI if you select a data source the portions of the URL directly after the /d/ will be the datacube name. 
+This is the data source you are targeting. In Imply UI if you select a data source the portions of the URL directly after the `/d/` will be the datacube name. 
 
 `"dataCube": "druid_wikipedia"`
 
