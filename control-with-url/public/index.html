@@ -1,31 +1,30 @@
 <!doctype html>
 <html lang="en">
-<div class="container center">
-<head>
-  <title>IFrame examples</title>
-  <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-
-<div class="card center mt-5" >
-  <div class="card-header h5">Page Filter</div>
-  <div class="card-img-top">
-  <iframe id="iframe" src="http://localhost:9095/pivot/d/7ddc63f3f64b0aeb52/Wikipedia"></iframe>
-</div>
-  <div class ="card-body m1">
-  <p>type in the search by the page you would like to see results for. Press Go to update the iframe link</p>
-    <div class="input-group md-form form-sm form-1 pl-0">
-      <input class="form-control my-0 py-1" type="text" id="input" placeholder="Search" aria-label="Search">
-      <div class="input-group-prepend">
-    <span><button class="btn btn-primary" id="go">GO</button><script src="logic.js"></script></span>
+  <div class="container center">
+    <head>
+      <title>IFrame examples</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+      <div class="card center mt-5" >
+        <div class="card-header h5">Page Filter</div>
+        <div class="card-img-top">
+          <iframe id="pivot" src="http://localhost:9095/pivot/d/7ddc63f3f64b0aeb52/Wikipedia"></iframe>
+        </div>
+        <div class ="card-body m1">
+          <p>Type in the search by the page you would like to see results for. Press Go to update the iframe link</p>
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <input class="form-control my-0 py-1" type="text" id="input" placeholder="Search" aria-label="Search">
+            <div class="input-group-prepend">
+              <span>
+                <button class="btn btn-primary" id="go">GO</button>
+                <script src="logic.js"></script>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </body>
   </div>
-</div>
-</body>
-</div>
 </html>
