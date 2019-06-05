@@ -6,6 +6,7 @@ In this example the user can search in either datacube or dashboard view to upda
 ![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
 
 To run: 
+
 `npm install`
 
 `npm start`
@@ -34,7 +35,6 @@ If the request has been successful and returns a URL then the src of the iframe 
 
 To view the essence of a request for either a datacube or dashboard open inspect element in your prefered view. To do this, in Chrome navigate to the desired page and press F12 or right click and select inspect element. 
 ![screenshot of inspect element](images/inspect.png "inspect element")
-![screenshot of open inspect element](images/inspect.png "open inspect element")
 
 Open the network tab and apply your filter like normal. 
 
