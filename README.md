@@ -5,7 +5,7 @@ A set of examples of how to iFrame Pivot into your own app
 ## Prerequisites
 
 - Node 10 running locally
-- Imply 2.9.x on-prem available from [imply.io/get-started](https://imply.io/get-started) with the wikipedia [quickstart](https://docs.imply.io/on-prem/quickstart) data. 
+- Imply 2.9.14 or higher on-prem available from [imply.io/get-started](https://imply.io/get-started) with the wikipedia [quickstart](https://docs.imply.io/on-prem/quickstart) data. 
 
 ## Examples
 

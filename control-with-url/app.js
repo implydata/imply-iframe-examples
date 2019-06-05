@@ -10,7 +10,8 @@ const IMPLY_API_TOKEN = "a4851b4c-ace7-48d9-b36d-be48386a4786";
 app.use(express.static('public'));
 app.use(express.json());
 
-app.post("/mkurl", async function (req, res) {
+// Get url for datacube view
+app.post("/mkurl-datacube", async function (req, res) {
 
   //Add user selected dimension to splits
   let splits =[];
@@ -38,15 +39,6 @@ app.post("/mkurl", async function (req, res) {
             "duration": "P1D",
             "step": -1
           }
-        },
-        {
-          "dimension": "page",
-          "action": "overlap",
-          "exclude": false,
-          "values": {
-            "elements": [String(req.body.filterValue)]//User Inputs updates filter
-          },
-          "setType": "STRING",
         }
       ]
     },
@@ -55,21 +47,43 @@ app.post("/mkurl", async function (req, res) {
     "pinnedDimensions": [],
     "selectedMeasures": ["count"],
     "settingsVersion": null,
-    "visualization": "table"
+    "visualization": req.body.dimension ? "table": "totals"
   };
 
+  //Use user input to add a page filter
+  if(req.body.filterValue){
+    essence.filter.clauses.push({
+      "dimension": "page",
+      "action": "overlap",
+      "exclude": false,
+      "values": {
+        "elements": [String(req.body.filterValue)]//User Inputs updates filter
+      },
+      "setType": "STRING",
+    });
+  }
+
   // Send request to imply-ui api endpoint
-  let response = await axios({
-    url: 'http://localhost:9095/api/v1/mkurl',
-    method: 'post',
-    headers: {
-      "x-imply-api-token": IMPLY_API_TOKEN
-    },
-    data: {
-      domain: "http://localhost:9095",
-      essence: essence
-    }
-  });
+  let response;
+  try{
+    response = await axios({
+      url: 'http://localhost:9095/api/v1/mkurl',
+      method: 'post',
+      headers: {
+        "x-imply-api-token": IMPLY_API_TOKEN
+      },
+      data: {
+        domain: "http://localhost:9095",
+        essence: essence
+      }
+    });
+  } catch (e) {
+    console.error(e);
+    res.status(500).send({
+      error: 'could not make url'
+    });
+    return
+  }
 
   // Update and send URL
   let url = response.data.url;
@@ -82,6 +96,64 @@ app.post("/mkurl", async function (req, res) {
     res.status(500).send({
       error: 'could not make url'
     });
+  }
+});
+
+// Get url for dashboard view
+app.post("/mkurl-dashboard", async function (req, res) {
+  // Set request essence
+  const essence = {
+    "dashboard": "7c9e",
+    "filter": {
+      "clauses": [
+        {
+          "dimension": "page",
+          "action": "overlap",
+          "exclude": false,
+          "values": {
+            "elements": [String(req.body.filterValue)]//User Inputs updates filter
+          },
+          "setType": "STRING",
+        }
+      ]
+    },
+    "timezone": "Etc/UTC",
+    "selectedMeasures": [],
+    "selectedPage": "page"
+  };
+
+  //Send request to imply-ui api endpoint
+  let response;
+  try {
+    response = await axios({
+      url: 'http://localhost:9095/api/v1/mkurl',
+      method: 'post',
+      headers: {
+        "x-imply-api-token": IMPLY_API_TOKEN
+      },
+      data: {
+        domain: "http://localhost:9095",
+        essence: essence
+      }
+    });
+  } catch (e) {
+    console.error(e);
+    res.status(500).send({
+      error: 'could not make url'
+    });
+    return
+  }
+
+
+  // Update and send URL
+  let url = response.data.url;
+  if (url) {
+    res.send({
+      url: url
+    });
+  } else {
+    // If no URL return error
+
   }
 });
 

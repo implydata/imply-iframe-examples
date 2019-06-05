@@ -1,8 +1,9 @@
 # Control with URL
 
-In this example upon clicking the go button, the user input will be used to generate a new URL from Imply that applies a page filter.
+In this example the user can search in either datacube or dashboard view to update an iframe with a new Imply-UI URL that applies a page filter. In datacube view the user also has the option of selecting a dimension from a dropdown menu to generating a new Url and update the iframe. 
 
-![screenshot of control-with-url-example](images/product.png "control-with-url-example")
+![screenshot of control-with-url-example](images/datacube.png "control-with-url-example")
+![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
 
 To run: 
 `npm install`
@@ -11,7 +12,7 @@ To run:
 
 ## Overview
 
-The purpose of this example is to show how you can update an iframe by updating a URL based on user generated search parameters. When the user clicks the go button what ever they have typed is passed as a perimeter to the setUrl function.
+The purpose of this example is to show how you can update an iframe by updating a URL based on user input. When the user clicks the go button or selects a value from the dropdown menu whatever they have entered is passed as a perimeter to the setUrl function of the respective view.
 SetUrl then makes a fetch request to app.js with the user input as the body of the request. In app.js the header and domain are configured and the user input is added as an element of the filters in essence. Axios is then used to make a post request that returns the new URL to logic.js.
 If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL with be set as the default URL.
 
@@ -28,7 +29,20 @@ If the request has been successful and returns a URL then the src of the iframe 
 - Open Localhost:9095 and from the side menu navigate to settings. Under settings select API tokens and click on new token to generate an API token.
 
   ![screenshot of ui-settings](images/settings.png "ui settings")
+  
+## View essence in Imply Ui
 
+To view the essence of a request for either a datacube or dashboard open inspect element in your prefered view. To do this, in Chrome navigate to the desired page and press F12 or right click and select inspect element. 
+![screenshot of inspect element](images/inspect.png "inspect element")
+![screenshot of open inspect element](images/inspect.png "open inspect element")
+
+Open the network tab and apply your filter like normal. 
+
+![screenshot of network tab](images/network.png "network tab")
+
+Under XHR and fetch you should see a request named register, open the headers tab of this request. Scroll to the bottom section called Request Payload. In this section you should be able to see and expand the essence of the operation you just preformed. 
+
+![screenshot of essence](images/network.png "essence")
 ## Configuring a request
 
 You can generate links that open to specific views to update iframe by POSTing to `http://localhost:9095/api/v1/mkurl`
@@ -41,11 +55,14 @@ This is a header for the request, and should be set to the API token generated i
 
 `"x-imply-api-token":"1a1b1cf8-fc83-495d-94d9-27f22836b81b"`
 
-###### Datacube:
+###### Datacube or Dashboard:
 
-This is the data source you are targeting. In Imply UI if you select a data source the portion of the URL directly after the `/d/` will be the datacube name.
+This is the data source you are targeting. In Imply UI if you select a data source the portion of the URL directly after the `/d/` will be the datacube name. For Dashboard the name is the portion directly after the '/c/'
+You can also easily find this by viewing the essence in Imply UI.
 
 `"dataCube": "druid_wikipedia"`
+
+`"dashboard": "7c9e"`
 
 ###### Essence:
 
