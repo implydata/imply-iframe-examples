@@ -4,17 +4,13 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// Update API token here
+const IMPLY_API_TOKEN = "1a1b1cf8-fc83-495d-94d9-27f22836b81b";
+
 app.use(express.static('public'));
 app.use(express.json());
 
 app.post("/mkurl", async function (req, res) {
-
-  // Set request headers
-  const headers = {
-    "Content-Type":"application/json",
-    // Update Api token here
-    "x-imply-api-token":"1a1b1cf8-fc83-495d-94d9-27f22836b81b"
-  };
 
   // Set request essence
   const essence = {
@@ -35,11 +31,11 @@ app.post("/mkurl", async function (req, res) {
         },
         {
           "dimension": "page",
-          "action" : "overlap",
+          "action": "overlap",
           "exclude": false,
           "values": {
             //User Inputs updates filter
-            "elements" : [String(req.body.input)]
+            "elements": [String(req.body.filterValue)]
           },
           "setType": "STRING",
         }
@@ -49,7 +45,7 @@ app.post("/mkurl", async function (req, res) {
     "splits": [],
     "pinnedDimensions": [],
     "selectedMeasures": ["count"],
-    "settingsVersion" : null,
+    "settingsVersion": null,
     "visualization": "totals"
   }
 
@@ -57,19 +53,23 @@ app.post("/mkurl", async function (req, res) {
   let response = await axios({
     url: 'http://localhost:9095/api/v1/mkurl',
     method: 'post',
-    headers: headers,
-    data : {"domain": "http://localhost:9095", "essence": essence}
+    headers: {
+      "x-imply-api-token": IMPLY_API_TOKEN
+    },
+    data: {
+      domain: "http://localhost:9095",
+      essence: essence
+    }
   })
 
-  // Update and send Url
+  // Update and send URL
   let url = response.data.url;
   if (url) {
     res.send({
-      "url": url
+      url: url
     });
-  }
-  // If no url return error
-  else {
+  } else {
+    // If no URL return error
     res.status(500).send({
       error: 'could not make url'
     });
@@ -77,5 +77,5 @@ app.post("/mkurl", async function (req, res) {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
+  console.log(`control-with-url example listening on port ${port}!`);
 });

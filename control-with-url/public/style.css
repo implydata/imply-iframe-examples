@@ -1,8 +1,8 @@
+* {
+  font-family: Arial;
+}
+
 iframe {
   width: 100%;
   height: 500px;
-}
-
-* {
-  font-family: Arial;
 }
