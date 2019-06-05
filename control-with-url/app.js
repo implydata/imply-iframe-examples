@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // Update API token here
-const IMPLY_API_TOKEN = "1a1b1cf8-fc83-495d-94d9-27f22836b81b";
+const IMPLY_API_TOKEN = "a4851b4c-ace7-48d9-b36d-be48386a4786";
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -34,8 +34,7 @@ app.post("/mkurl", async function (req, res) {
           "action": "overlap",
           "exclude": false,
           "values": {
-            //User Inputs updates filter
-            "elements": [String(req.body.filterValue)]
+            "elements": [String(req.body.filterValue)]//User Inputs updates filter
           },
           "setType": "STRING",
         }
@@ -47,7 +46,7 @@ app.post("/mkurl", async function (req, res) {
     "selectedMeasures": ["count"],
     "settingsVersion": null,
     "visualization": "totals"
-  }
+  };
 
   // Send request to imply-ui api endpoint
   let response = await axios({
@@ -60,7 +59,7 @@ app.post("/mkurl", async function (req, res) {
       domain: "http://localhost:9095",
       essence: essence
     }
-  })
+  });
 
   // Update and send URL
   let url = response.data.url;

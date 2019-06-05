@@ -10,6 +10,7 @@ document.querySelector('#go').addEventListener('click', function(e) {
 });
 
 async function setUrl(request) {
+
   // Set Default URL to just be the druid_wikipedia data cube
   let url = 'http://localhost:9095/pivot/d/druid_wikipedia';
 
@@ -24,9 +25,10 @@ async function setUrl(request) {
   })
 
   let json = await resp.json();
+
   // If the user input was not blank and a url was returned update the url
-  if (json.url && request.input) {
-    url = json.url
+  if (json.url && request.filterValue) {
+    url = json.url;('pivot').src = url;
   }
   // Set New Src
   document.getElementById('pivot').src = url;

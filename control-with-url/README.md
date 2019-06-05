@@ -12,7 +12,7 @@ To run:
 
 The purpose of this example is to show how you can update an iframe using updating a URL based on user generated search parameters. When the user clicks the go button what ever they have typed is passed as a perimeter to the setUrl function.
 SetUrl then makes a fetch request to app.js with the user input as the body of the request. In app.js the header and domain are configured and the user input is added as an element of the filters in essence. Axios is then used to make a post request that returns the new URL to logic.js.
-If the request has been successful and returns a URL then the src of the iframe will update. Notably if a URL is not returned or if the user does not search anything, then the URL with be set as the default URL.
+If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL with be set as the default URL.
 
 ## Getting an App token
 
@@ -54,30 +54,37 @@ The essence contains the filters you are searching by. To view the configuration
 const essence = {
     "dataCube": "druid_wikipedia",
     "filter": {
-        "clauses": [
-            {
-                "dimension": "__time",
-                "dynamic": {
-                    "op": "timeRange",
-                    "operand": {
-                        "op": "ref",
-                        "name": "m"
-                    },
-                    "duration": "P1D",
-                    "step": -1
-                }
+      "clauses": [
+        {
+          "dimension": "__time",
+          "dynamic": {
+            "op": "timeRange",
+            "operand": {
+              "op": "ref",
+              "name": "m"
             },
-            {
-                "dimension": "page",
-                "action" : "overlap",
-                "exclude": false,
-                "values": {
-                    "elements" : [req.body.input]
-                },
-                "setType": "STRING",
-            }
-        ]
+            "duration": "P1D",
+            "step": -1
+          }
+        },
+        {
+          "dimension": "page",
+          "action": "overlap",
+          "exclude": false,
+          "values": {
+            "elements": [String(req.body.filterValue)]//User Inputs updates filter
+          },
+          "setType": "STRING",
+        }
+      ]
     },
+    "timezone": "Etc/UTC",
+    "splits": [],
+    "pinnedDimensions": [],
+    "selectedMeasures": ["count"],
+    "settingsVersion": null,
+    "visualization": "totals"
+  }
 ```
 
 
