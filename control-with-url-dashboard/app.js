@@ -47,7 +47,7 @@ app.post("/mkurl", async function (req, res) {
   });
 
   // Update and send URL
-  let url = 'response.data.url';
+  let url = response.data.url;
   if (url) {
     res.send({
       url: url
