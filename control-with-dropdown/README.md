@@ -1,6 +1,6 @@
 # Control with URL
 
-In this example upon clicking the go button, the user input will be used to generate a new URL from Imply that applies a page filter.
+In this example upon selecting a dimension from the drop down menu, the dimension will be used to generate a new URL from Imply that applies a page filter.
 
 ![screenshot of control-with-url-example](images/product.png "control-with-url-example")
 
@@ -77,11 +77,11 @@ The essence contains the filters you are searching by. To view the configuration
     "visualization": "table"
   };
 ```
-## Configuring a request
+## Configuring Splits
 To change the dimension of the iframe you need to configure the splits array by adding a new split object. 
 ```
 let splits = [{
-    dimension: (String(req.body.dimension).toLocaleLowerCase()),
+    dimension: "page",
     sortType: "measure",
     direction: "descending"}];
 ```
