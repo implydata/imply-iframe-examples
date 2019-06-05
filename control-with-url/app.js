@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.post("/mkurl", async function (req, res) {
 
-  console.log(req.body.dimension);
+  //Add user selected dimension to splits
   let splits =[];
   if(req.body.dimension) {
     splits = [{
@@ -21,7 +21,7 @@ app.post("/mkurl", async function (req, res) {
       direction: "descending"
     }];
   }
-  console.log(splits);
+
   // Set request essence
   const essence = {
     "dataCube": "druid_wikipedia",
