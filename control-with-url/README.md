@@ -2,8 +2,10 @@
 
 In this example upon clicking the go button, the user input will be used to generate a new URL from Imply that applies a page filter.
 
-To run:
+![screenshot of product](images/product.png "product")
 
+To run:
+git
 `npm install`
 
 `npm start`
@@ -36,7 +38,7 @@ Requests to Imply ui requires three main components to be configured:
 
 ###### x-imply-api-token:
 
-This a header for the request, and should be set to the API token generated in your local Imply UI
+This is a header for the request, and should be set to the API token generated in your local Imply UI
 
 `"x-imply-api-token":"1a1b1cf8-fc83-495d-94d9-27f22836b81b"`
 
