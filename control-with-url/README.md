@@ -4,8 +4,7 @@ In this example upon clicking the go button, the user input will be used to gene
 
 ![screenshot of product](images/product.png "product")
 
-To run:
-git
+To run: git
 `npm install`
 
 `npm start`
@@ -34,7 +33,7 @@ If the request has been successful and returns a URL then the src of the iframe 
 
 You can generate links that open to specific views to update iframe by POSTing to `http://localhost:9095/api/v1/mkurl`
 
-Requests to Imply ui requires three main components to be configured:
+Requests to Imply UI requires three main components to be configured:
 
 ###### x-imply-api-token:
 
@@ -44,7 +43,7 @@ This is a header for the request, and should be set to the API token generated i
 
 ###### Datacube:
 
-This is the data source you are targeting. In Imply UI if you select a data source the portions of the URL directly after the `/d/` will be the datacube name.
+This is the data source you are targeting. In Imply UI if you select a data source the portion of the URL directly after the `/d/` will be the datacube name.
 
 `"dataCube": "druid_wikipedia"`
 
