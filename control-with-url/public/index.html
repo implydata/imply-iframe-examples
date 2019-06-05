@@ -14,17 +14,36 @@
           </div>
           <div class ="card-body m1">
             <p>Search by the page you would like to see results for. Press Go to update the iframe link.</p>
-            <div class="input-group md-form form-sm form-1 pl-0">
-              <input class="form-control my-0 py-1" type="text" id="input" placeholder="Search" aria-label="Search">
-              <div class="input-group-prepend">
-                <span>
-                  <button class="btn btn-primary" id="go">GO</button>
-                </span>
+            <div class="row">
+              <div class="col-9">
+                <div class="input-group md-form form-sm form-1 pl-0">
+                  <input class="form-control my-0 py-1" type="text" id="input" placeholder="Search" aria-label="Search">
+                  <div class="input-group-prepend">
+                    <span>
+                      <button class="btn btn-primary" id="go">GO</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                    Dimension
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" id="Page" onclick="setDimension(id)">Page</a>
+                    <a class="dropdown-item" id="User" onclick="setDimension(id)">User</a>
+                    <a class="dropdown-item" id="Comment" onclick="setDimension(id)">Comment</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <script src="logic.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       </div>
     </body>
 </html>

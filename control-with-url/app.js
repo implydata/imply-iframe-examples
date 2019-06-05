@@ -12,6 +12,16 @@ app.use(express.json());
 
 app.post("/mkurl", async function (req, res) {
 
+  console.log(req.body.dimension);
+  let splits =[];
+  if(req.body.dimension) {
+    splits = [{
+      dimension: (String(req.body.dimension).toLocaleLowerCase()),
+      sortType: "measure",
+      direction: "descending"
+    }];
+  }
+  console.log(splits);
   // Set request essence
   const essence = {
     "dataCube": "druid_wikipedia",
@@ -41,11 +51,11 @@ app.post("/mkurl", async function (req, res) {
       ]
     },
     "timezone": "Etc/UTC",
-    "splits": [],
+    "splits": splits,
     "pinnedDimensions": [],
     "selectedMeasures": ["count"],
     "settingsVersion": null,
-    "visualization": "totals"
+    "visualization": "table"
   };
 
   // Send request to imply-ui api endpoint

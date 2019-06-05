@@ -1,13 +1,21 @@
 // Listen for go button push
+let request = {}
+
 document.querySelector('#go').addEventListener('click', function(e) {
 
   //set request body to be user input
-  let request = {
-    filterValue: document.getElementById('input').value
-  };
+  request.filterValue= document.getElementById('input').value;
+
 
   setUrl(request);
 });
+
+function setDimension(type){
+  request.dimension = type;
+  setUrl(request);
+  //updated displayed dimension to selected dimension
+  document.getElementById('dropdownMenuButton').textContent=type;
+}
 
 async function setUrl(request) {
 
@@ -27,7 +35,7 @@ async function setUrl(request) {
   let json = await resp.json();
 
   // If the user input was not blank and a url was returned update the url
-  if (json.url && request.filterValue) {
+  if (json.url && (request.filterValue ||request.dimension)){
     url = json.url;
   }
   // Set New Src
