@@ -2,9 +2,9 @@
 
 In this example upon clicking the go button, the user input will be used to generate a new URL from Imply that applies a page filter.
 
-![screenshot of product](images/product.png "product")
+![screenshot of control-with-url-example](images/product.png "control-with-url-example")
 
-To run: git
+To run: 
 `npm install`
 
 `npm start`
