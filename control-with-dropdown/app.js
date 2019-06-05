@@ -11,6 +11,8 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.post("/mkurl", async function (req, res) {
+
+  //Set split dimension to user input
   let splits = [{
     dimension: (String(req.body.dimension).toLocaleLowerCase()),
     sortType: "measure",

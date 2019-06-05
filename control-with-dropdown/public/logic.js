@@ -1,8 +1,11 @@
+//On dimension select
 function setDimension(type){
   let request = {
     dimension: type
   };
   setUrl(request);
+
+  //updated displayed dimension to selected dimension
   document.getElementById('dropdownMenuButton').textContent=type;
 }
 
@@ -24,7 +27,7 @@ async function setUrl(request) {
 
   let json = await resp.json();
 
-  // If the user input was not blank and a url was returned update the url
+  // If the dimension was not blank and a url was returned update the url
   if (json.url && request.dimension) {
     url = json.url;
   }
