@@ -28,7 +28,7 @@ async function setUrl(request) {
 
   // If the user input was not blank and a url was returned update the url
   if (json.url && request.filterValue) {
-    url = json.url;('pivot').src = url;
+    url = json.url;
   }
   // Set New Src
   document.getElementById('pivot').src = url;
