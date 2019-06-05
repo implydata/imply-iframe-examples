@@ -25,11 +25,11 @@ If the request has been successful and returns a URL then the src of the iframe 
 
 - Navigate to imply-x.x.x/conf-quickstart/pivot/config.yaml and add `enableApiEndpoint: true`
 
-  ![screenshot of settings](images/code.png "enableApiEndpoint")
+  ![screenshot of settings](images/code.png)
 
 - Open Localhost:9095 and from the side menu navigate to settings. Under settings select API tokens and click on new token to generate an API token.
 
-  ![screenshot of ui-settings](images/settings.png "ui settings")
+  ![screenshot of ui-settings](images/settings.png)
   
 ## View essence in Imply Ui
 
@@ -42,7 +42,7 @@ Open the network tab and apply your filter like normal.
 
 Under XHR and fetch you should see a request named register, open the headers tab of this request. Scroll to the bottom section called Request Payload. In this section you should be able to see and expand the essence of the operation you just preformed. 
 
-![screenshot of essence](images/network.png "essence")
+![screenshot of essence](images/essence.png "essence")
 ## Configuring a request
 
 You can generate links that open to specific views to update iframe by POSTing to `http://localhost:9095/api/v1/mkurl`
