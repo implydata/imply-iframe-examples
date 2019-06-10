@@ -10,8 +10,8 @@ const IMPLY_API_TOKEN = "b2c9b5cd-84c6-4219-9556-8eef5e52a5fb";
 app.use(express.static('public'));
 app.use(express.json());
 
-// Get url for datacube view
-app.post("/mkurl-datacube", async function (req, res) {
+// Get url for dataCube view
+app.post("/mkurl-dataCube", async function (req, res) {
 
   //Add user selected dimension to splits
   let splits =[];

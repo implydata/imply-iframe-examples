@@ -3,7 +3,7 @@ let view = 'dataCube'
 let Defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
 let path = '/mkurl-datacube'
 
-// Toggle between dashboard and datacube
+// Toggle between dashboard and dataCube
 function show(show){
   request = {}
   if(show) {
@@ -12,7 +12,7 @@ function show(show){
     // Set DataCube default Url
     Defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
 
-    path = '/mkurl-datacube'
+    path = '/mkurl-dataCube'
     document.getElementById('dropDown').style.display = 'block';
     document.getElementById('search').className = 'col-9';
   } else{

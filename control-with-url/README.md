@@ -15,7 +15,7 @@ To run:
 
 The purpose of this example is to show how you can update an iframe by updating a URL based on user input. When the user clicks the go button or selects a value from the dropdown menu whatever they have entered is passed as a parameter to the setUrl function.
 SetUrl then makes a fetch request to app.js with the user input as the body of the request. In app.js the header and domain are configured and the user input is added as an element of the filters in essence. Axios is then used to make a post request that returns the new URL to logic.js.
-If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL with be set as the default URL.
+If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL will be set to the default URL.
 
 ## Getting an App token
 - Download Imply quickstart and follow the quick start guide:
