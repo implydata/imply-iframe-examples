@@ -119,6 +119,6 @@ const essence = {
 
   https://docs.imply.io/on-prem/special-ui-features/generating-links-into-imply
   
--Demo Videos
+- Demo Videos
 
  ![screenshot of ui-settings](images/demo_videos.png) 
