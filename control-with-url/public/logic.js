@@ -1,42 +1,49 @@
 let request = {}
+let view = 'dataCube'
+let Defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
+let path = '/mkurl-datacube'
 
-//Toggle between dashboard and datacube
-function show(shown, hidden){
-  request ={};
-  document.getElementById(shown).style.display='block';
-  document.getElementById(hidden).style.display='none';
-}
+// Toggle between dashboard and datacube
+function show(show){
+  request = {}
+  if(show) {
+    view = 'dataCube';
 
-//When the go button is pressed set request bodt to user input and make the correct request fo the active view
-function getUrl(id ){
-  if(id === 'dashboard'){
-    //set request body to be user input
-    request.filterValue= document.getElementById('input-dashboard').value;
-    setDashboardUrl(request);
+    // Set DataCube default Url
+    Defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
+
+    path = '/mkurl-datacube'
+    document.getElementById('dropDown').style.display = 'block';
+    document.getElementById('search').className = 'col-9';
   } else{
-    //set request body to be user input
-    request.filterValue= document.getElementById('input-datacube').value;
-    setDatacubeUrl(request);
-  }
+    view = 'dashboard'
+    path = '/mkurl-dashboard'
 
+    // Set Dashboard default Url
+    Defaulturl = 'http://localhost:9095/pivot/c/909c/Example_Dashboard_';
+
+    document.getElementById('dropDown').style.display = 'none';
+    document.getElementById('search').className = 'col-12';
+  }
+  getUrl();
 }
 
 function setDimension(type){
   request.dimension = type;
-  request.filterValue= document.getElementById('input-datacube').value;
-  setDatacubeUrl(request);
-  //updated displayed dimension to selected dimension
+  request.filterValue= document.getElementById('pivot').value;
+  getUrl(request);
+
+  // updated displayed dimension to selected dimension
   document.getElementById('dropdownMenuButton').textContent=type;
 }
 
-//getUrl for datacube view
-async function setDatacubeUrl(request) {
+async function getUrl() {
+ let url = Defaulturl
 
-  // Set Default URL to just be the druid_wikipedia data cube
-  let url = 'http://localhost:9095/pivot/d/druid_wikipedia';
+  request.filterValue= document.getElementById('input').value;
 
   // Fetch new Url
-  let resp = await fetch('/mkurl-datacube', {
+  let resp = await fetch(path, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -51,32 +58,7 @@ async function setDatacubeUrl(request) {
   if (json.url && (request.filterValue ||request.dimension)){
     url = json.url;
   }
+
   // Set New Src
-  document.getElementById('pivot-datacube').src = url;
-}
-
-//getUrl for Dashboard view
-async function setDashboardUrl(request) {
-
-  // Set Default URL to just be the druid_wikipedia data cube
-  let url = 'http://localhost:9095/pivot/c/7c9e/New_dashboard';
-
-  // Fetch new Url
-  let resp = await fetch('/mkurl-dashboard', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(request)
-  })
-
-  let json = await resp.json();
-
-  // If the user input was not blank and a url was returned update the url
-  if (json.url && (request.filterValue ||request.dimension)){
-    url = json.url;
-  }
-  // Set New Src
-  document.getElementById('pivot-dashboard').src = url;
+  document.getElementById('pivot').src = url;
 }

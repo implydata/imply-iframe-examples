@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 // Update API token here
-const IMPLY_API_TOKEN = "a4851b4c-ace7-48d9-b36d-be48386a4786";
+const IMPLY_API_TOKEN = "b2c9b5cd-84c6-4219-9556-8eef5e52a5fb";
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -23,7 +23,6 @@ app.post("/mkurl-datacube", async function (req, res) {
     }];
   }
 
-  // Set request essence
   const essence = {
     "dataCube": "druid_wikipedia",
     "filter": {
@@ -103,7 +102,7 @@ app.post("/mkurl-datacube", async function (req, res) {
 app.post("/mkurl-dashboard", async function (req, res) {
   // Set request essence
   const essence = {
-    "dashboard": "7c9e",
+    "dashboard": "909c",
     "filter": {
       "clauses": [
         {
@@ -153,7 +152,9 @@ app.post("/mkurl-dashboard", async function (req, res) {
     });
   } else {
     // If no URL return error
-
+    res.status(500).send({
+      error: 'could not make url'
+    });
   }
 });
 

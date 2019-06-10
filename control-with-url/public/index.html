@@ -8,33 +8,33 @@
     <body>
       <div class="container center">
         <div class="mt-4 mb-2 btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-primary active" onclick="show('datacube', 'dashboard')">
+          <label class="btn btn-primary active" onclick="show(true)">
             <input type="radio" name="options" id="option1" autocomplete="off" checked>DataCube
           </label>
-          <label class="btn btn-primary" onclick="show('dashboard', 'datacube')">
+          <label class="btn btn-primary" onclick="show(false)">
             <input type="radio" name="options" id="option2" autocomplete="off">Dashboard
           </label>
         </div>
         <div id="datacube" class="card center" >
           <div class="card-header h5">Page Filter</div>
           <div class="card-img-top">
-            <iframe id="pivot-datacube" src="http://localhost:9095/pivot/d/druid_wikipedia"></iframe>
+            <iframe id="pivot" src="http://localhost:9095/pivot/d/druid_wikipedia"></iframe>
           </div>
           <div class ="card-body m1">
             <p>Search by the page you would like to see results for. Press Go to update the iframe link.</p>
             <div class="row">
-              <div class="col-9">
+              <div id="search" class="col-9">
                 <div class="input-group md-form form-sm form-1 pl-0">
-                  <input class="form-control my-0 py-1" type="text" id="input-datacube" placeholder="Search" aria-label="Search">
+                  <input class="form-control my-0 py-1" type="text" id="input" placeholder="Search" aria-label="Search">
                   <div class="input-group-prepend">
                     <span>
-                      <button class="btn btn-primary" onclick="getUrl('datacube')">GO</button>
+                      <button class="btn btn-primary" onclick="getUrl()">GO</button>
                     </span>
                   </div>
                 </div>
               </div>
               <div class="col-3">
-                <div class="dropdown">
+                <div id="dropDown" class="dropdown">
                   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
                     Dimension
                   </button>
@@ -48,23 +48,6 @@
             </div>
           </div>
         </div>
-          <div id="dashboard" class="card center" style="display: none" >
-            <div class="card-header h5">Page Filter</div>
-            <div class="card-img-top">
-              <iframe id="pivot-dashboard" src="http://localhost:9095/pivot/c/7c9e/New_dashboard"></iframe>
-            </div>
-            <div class ="card-body m1">
-              <p>Search by the page you would like to see results for. Press Go to update the iframe link.</p>
-              <div class="input-group md-form form-sm form-1 pl-0">
-                <input class="form-control my-0 py-1" type="text" id="input-dashboard" placeholder="Search" aria-label="Search">
-                <div class="input-group-prepend">
-              <span>
-                <button class="btn btn-primary" onclick="getUrl('dashboard')">GO</button>
-              </span>
-                </div>
-              </div>
-            </div>
-          </div>
         <script src="logic.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

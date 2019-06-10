@@ -31,6 +31,14 @@ If the request has been successful and returns a URL then the src of the iframe 
 
   ![screenshot of ui-settings](images/settings.png)
   
+## Import settings 
+To use the exact same set up as imply for this demo you will need to import the same app settings: 
+
+Go to imply UI settings > advanced and scroll to bulk iports. Click on import settings. 
+![screenshot of ui-settings](images/imports.png)
+
+Copy the app settings object from this project and click import. 
+![screenshot of ui-settings](images/import-settings.png)
 ## View essence in Imply Ui
 
 To view the essence of a request for either a datacube or dashboard open inspect element in your prefered view. To do this, in Chrome navigate to the desired page and press F12 or right click and select inspect element. 
