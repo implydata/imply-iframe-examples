@@ -1,0 +1,285 @@
+{
+  "customization": {},
+  "dataCubes": [
+    {
+      "name": "druid_wikipedia",
+      "title": "Wikipedia",
+      "connectionName": "druid",
+      "source": "wikipedia",
+      "options": {},
+      "readAccess": {
+        "access": "all"
+      },
+      "modifyAccess": {
+        "access": "single",
+        "users": [
+          "user"
+        ]
+      },
+      "attributes": [
+        {
+          "name": "__time",
+          "type": "TIME",
+          "nativeType": "__time"
+        }
+      ],
+      "dimensions": [
+        {
+          "name": "__time",
+          "title": "Time",
+          "formula": "$__time",
+          "type": "TIME"
+        },
+        {
+          "name": "added",
+          "title": "Added",
+          "formula": "$added",
+          "type": "NUMBER"
+        },
+        {
+          "name": "channel",
+          "title": "Channel",
+          "formula": "$channel",
+          "type": "STRING"
+        },
+        {
+          "name": "comment",
+          "title": "Comment",
+          "formula": "$comment",
+          "type": "STRING"
+        },
+        {
+          "name": "commentLength",
+          "title": "Comment Length",
+          "formula": "$commentLength",
+          "type": "NUMBER"
+        },
+        {
+          "name": "deleted",
+          "title": "Deleted",
+          "formula": "$deleted",
+          "type": "NUMBER"
+        },
+        {
+          "name": "delta",
+          "title": "Delta",
+          "formula": "$delta",
+          "type": "NUMBER"
+        },
+        {
+          "name": "deltaBucket",
+          "title": "Delta Bucket",
+          "formula": "$deltaBucket",
+          "type": "NUMBER"
+        },
+        {
+          "name": "diffUrl",
+          "title": "Diff Url",
+          "formula": "$diffUrl",
+          "type": "STRING"
+        },
+        {
+          "name": "flags",
+          "title": "Flags",
+          "formula": "$flags",
+          "type": "STRING"
+        },
+        {
+          "name": "isAnonymous",
+          "title": "Is Anonymous",
+          "formula": "$isAnonymous",
+          "type": "STRING"
+        },
+        {
+          "name": "isMinor",
+          "title": "Is Minor",
+          "formula": "$isMinor",
+          "type": "STRING"
+        },
+        {
+          "name": "isNew",
+          "title": "Is New",
+          "formula": "$isNew",
+          "type": "STRING"
+        },
+        {
+          "name": "isRobot",
+          "title": "Is Robot",
+          "formula": "$isRobot",
+          "type": "STRING"
+        },
+        {
+          "name": "isUnpatrolled",
+          "title": "Is Unpatrolled",
+          "formula": "$isUnpatrolled",
+          "type": "STRING"
+        },
+        {
+          "name": "namespace",
+          "title": "Namespace",
+          "formula": "$namespace",
+          "type": "STRING"
+        },
+        {
+          "name": "page",
+          "title": "Page",
+          "formula": "$page",
+          "type": "STRING"
+        },
+        {
+          "name": "user",
+          "title": "User",
+          "formula": "$user",
+          "type": "STRING"
+        }
+      ],
+      "measures": [
+        {
+          "name": "count",
+          "title": "Number of Events",
+          "formula": "$main.count()",
+          "numberStyle": {
+            "type": "si",
+            "leading": 1,
+            "minDecimals": 2,
+            "maxDecimals": 2,
+            "integer": true,
+            "abbreviationSpace": true
+          }
+        },
+        {
+          "name": "sum_added",
+          "title": "Added",
+          "formula": "$main.sum($added)"
+        },
+        {
+          "name": "sum_commentLength",
+          "title": "Comment Length",
+          "formula": "$main.sum($commentLength)"
+        },
+        {
+          "name": "sum_delta",
+          "title": "Delta",
+          "formula": "$main.sum($delta)"
+        },
+        {
+          "name": "sum_deltaBucket",
+          "title": "Delta Bucket",
+          "formula": "$main.sum($deltaBucket)"
+        },
+        {
+          "name": "sum_deleted",
+          "title": "Deleted",
+          "formula": "$main.sum($deleted)"
+        }
+      ],
+      "specialTimeDimension": "__time",
+      "enforceTimeFilter": true,
+      "defaultRefreshRate": "PT5M"
+    }
+  ],
+  "dashboards": [
+    {
+      "name": "909c",
+      "title": "Example Dashboard ",
+      "readAccess": {
+        "access": "all"
+      },
+      "modifyAccess": {
+        "access": "single",
+        "users": [
+          "user"
+        ]
+      },
+      "pages": [
+        {
+          "name": "page",
+          "label": "New page",
+          "tiles": [
+            {
+              "name": "t84f7",
+              "type": "visualization",
+              "title": "New tile",
+              "canExpand": true,
+              "description": "",
+              "position": {
+                "width": 12,
+                "height": 12
+              },
+              "essence": {
+                "dataCube": "druid_wikipedia",
+                "timezone": "Etc/UTC",
+                "filter": {
+                  "clauses": [
+                    {
+                      "dimension": "__time",
+                      "dynamic": {
+                        "op": "timeRange",
+                        "operand": {
+                          "op": "ref",
+                          "name": "m"
+                        },
+                        "duration": "P1D",
+                        "step": -1
+                      }
+                    }
+                  ]
+                },
+                "splits": [],
+                "selectedMeasures": [
+                  "count"
+                ],
+                "pinnedDimensions": [],
+                "visualization": "totals"
+              }
+            },
+            {
+              "name": "t3e72",
+              "type": "visualization",
+              "title": "New tile",
+              "canExpand": true,
+              "description": "",
+              "position": {
+                "width": 12,
+                "height": 12,
+                "x": 12
+              },
+              "essence": {
+                "dataCube": "druid_wikipedia",
+                "timezone": "Etc/UTC",
+                "filter": {
+                  "clauses": [
+                    {
+                      "dimension": "__time",
+                      "dynamic": {
+                        "op": "timeRange",
+                        "operand": {
+                          "op": "ref",
+                          "name": "m"
+                        },
+                        "duration": "P1D",
+                        "step": -1
+                      }
+                    }
+                  ]
+                },
+                "splits": [
+                  {
+                    "dimension": "channel",
+                    "sortType": "measure",
+                    "direction": "descending"
+                  }
+                ],
+                "selectedMeasures": [
+                  "count"
+                ],
+                "pinnedDimensions": [],
+                "visualization": "table"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
