@@ -2,7 +2,7 @@
 
 In this example the user can search in either datacube or dashboard view to update an iframe with a new Imply-UI URL that applies a page filter. In datacube view the user also has the option of selecting a dimension from a dropdown menu to generating a new Url and update the iframe. 
 
-![screenshot of control-with-url-example](images/datacube.png "control-with-url-example")
+![screenshot of control-with-url-example](images/data_cube.png "control-with-url-example")
 ![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
 
 To run: 
@@ -37,7 +37,7 @@ Go to your running Imply application and navigate to settings > advanced and scr
 ![screenshot of bulk imports settings](images/imports.png)
 
 Copy the app settings object from this project and click import. 
-![screenshot of import settings](images/import-settings.png)
+![screenshot of import settings](images/import_settings.png)
 ## View essence in Imply Ui
 
 To view the essence of a request for either a datacube or dashboard open inspect element in your prefered view. To do this, in Chrome navigate to the desired page and press F12 or right click and select inspect element. 
