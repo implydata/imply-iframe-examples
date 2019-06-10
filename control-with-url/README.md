@@ -18,7 +18,6 @@ SetUrl then makes a fetch request to app.js with the user input as the body of t
 If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL with be set as the default URL.
 
 ## Getting an App token
-
 - Download Imply quickstart and follow the quick start guide:
 
   https://docs.imply.io/on-prem/quickstart
@@ -32,9 +31,9 @@ If the request has been successful and returns a URL then the src of the iframe 
   ![screenshot of ui-settings](images/settings.png)
   
 ## Import settings 
-To use the exact same set up as imply for this demo you will need to import the same app settings: 
+To use the exact same set up of Imply for this demo you will need to import the same app settings: 
 
-Go to imply UI settings > advanced and scroll to bulk iports. Click on import settings. 
+Go to your running Imply application and navigate to settings > advanced and scroll to bulk imports. Click on import settings. 
 ![screenshot of ui-settings](images/imports.png)
 
 Copy the app settings object from this project and click import. 
