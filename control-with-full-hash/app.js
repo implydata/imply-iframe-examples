@@ -1,6 +1,4 @@
-const axios = require('axios');
 const express = require('express');
-const LZString = require('lz-string')
 const app = express();
 const port = 3000;
 

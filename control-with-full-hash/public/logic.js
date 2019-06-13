@@ -1,38 +1,40 @@
 let view = 'dataCube'
-let Defaulturl = 'http://localhost:9095/pivot/d/wikipedia/Wikipedia';
-let splits = []
+let defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
+let splits = [];
+
 // Toggle between dashboard and dataCube
 function show(show){
   splits = [];
 
-  if(show) {
+  if (show) {
     view = 'dataCube';
 
     // Set DataCube default Url
-    Defaulturl = 'http://localhost:9095/pivot/d/wikipedia/Wikipedia';
+    defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
 
     path = '/mkurl-dataCube'
     document.getElementById('dropDown').style.display = 'block';
     document.getElementById('search').className = 'col-9';
-  } else{
+  } else {
     view = 'dashboard'
     path = '/mkurl-dashboard'
 
     // Set Dashboard default Url
-    Defaulturl = 'http://localhost:9095/pivot/c/b4d0/New_dashboard';
+    Defaulturl = 'http://localhost:9095/pivot/c/909c/Example_Dashboard_';
 
     document.getElementById('dropDown').style.display = 'none';
     document.getElementById('search').className = 'col-12';
   }
-  document.getElementById('pivot').src = Defaulturl;
+  document.getElementById('pivot').src = defaulturl;
 }
 
+//Configure Essence
 function setUrl(){
   const message = document.getElementById('input').value;
   let essence = {};
-  if(view == 'dataCube') {
+  if (view == 'dataCube') {
     essence = {
-      dataCube: 'wikipedia',
+      dataCube: 'druid_wikipedia',
       filter: {
         clauses: [
           {
@@ -63,10 +65,10 @@ function setUrl(){
       timezone: 'Etc/UTC',
       selectedMeasures: ["count"]
     };
-  } else{
+  } else {
     view = 'dashboard';
     essence = {
-      dashboard: 'b4d0',
+      dashboard: '909c',
       filter: {
         clauses: [
           {
@@ -97,7 +99,7 @@ function setDimension(type){
 
   // updated displayed dimension to selected dimension
   document.getElementById('dropdownMenuButton').textContent=type;
-  emit()
+  setUrl();
 }
 
 function setDimension(type){
@@ -109,19 +111,21 @@ function setDimension(type){
 
   // updated displayed dimension to selected dimension
   document.getElementById('dropdownMenuButton').textContent=type;
-  setUrl()
+  setUrl();
 }
 
+//Generate hash based on essence and update Iframe
 async function toFullHash(essence) {
   const value = tidyB64(LZString.compressToBase64(JSON.stringify(essence)));
-  if( view === 'dataCube'){
+  if (view === 'dataCube') {
     document.getElementById('pivot').src = 'http://localhost:9095/pivot/d/' + value ;
-  } else{
+  } else {
     document.getElementById('pivot').src = 'http://localhost:9095/pivot/c/' + value ;
   }
 
 }
 
+//Tidy hash to be URL safe
 function tidyB64(b64) {
   return b64.replace(/\+/g, '-').replace(/\//g, '_');
 }

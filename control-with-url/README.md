@@ -1,6 +1,6 @@
 # Control with URL
 
-In this example the user can search in either datacube or dashboard view to update an iframe with a new Imply-UI URL that applies a page filter. In datacube view the user also has the option of selecting a dimension from a dropdown menu to generating a new Url and update the iframe. 
+In this example the user can search in either datacube or dashboard view to update an iframe with a new Imply-UI URL that applies a page filter. In datacube view the user also has the option of selecting a dimension from a dropdown menu to generate a new URL and update the iframe. 
 
 ![screenshot of control-with-url-example](images/data_cube.png "control-with-url-example")
 ![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
