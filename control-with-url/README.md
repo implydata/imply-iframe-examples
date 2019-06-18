@@ -7,8 +7,6 @@ In this example the user can search in either datacube or dashboard view to upda
 
 To run: 
 
-`npm install`
-
 `npm start`
 
 ## Overview
