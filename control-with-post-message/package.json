@@ -10,8 +10,5 @@
   "license": "ISC",
   "dependencies": {
     "http-server": "^0.11.1"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.0"
   }
 }

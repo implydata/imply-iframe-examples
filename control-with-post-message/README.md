@@ -234,7 +234,7 @@ action: 'triggerExplain'
 ```
 
 ChangeExplain:
-updates explain, take a parameter of ExplainType. 
+Updates explain, take a parameter of ExplainType. 
 
 Explaintypes: `'trend'` , `'compare'` . `'breakdown'`
 
@@ -387,7 +387,7 @@ data= {
 ```
 
 removeSplit:
-removes one dimension from the data cube. Parameters should be the single new split object, this is easily visible in the Essence in Imply UI. 
+Removes one dimension from the data cube. Parameters should be the single new split object, this is easily visible in the Essence in Imply UI. 
 ```
 data= {
   name: 'druid_wikipedia'
