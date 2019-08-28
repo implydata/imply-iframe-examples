@@ -34,11 +34,7 @@ Open the network tab and apply your filter like normal.
 Under XHR and fetch you should see a request named register, open the headers tab of this request. Scroll to the bottom section called Request Payload. In this section you should be able to see and expand the essence of the operation you just preformed. 
 
 ![screenshot of essence](images/essence.png "essence")
-## Configuring a request
 
-You can generate links that open to specific views to update iframe by POSTing to `http://localhost:9095/api/v1/mkurl`
-
-Requests to Imply UI requires three main components to be configured:
 
 ###### x-imply-api-token:
 
