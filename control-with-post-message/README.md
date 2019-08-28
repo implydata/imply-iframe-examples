@@ -1,6 +1,6 @@
 # Control with URL
 
-In this example the user can search in either data cube or dashboard view to update an iframe by sending a post message to pivot. In data cube view the user also has the option of selecting a dimension from a dropdown menu to send a post message and update the iframe. 
+In this example the user can search in either data cube or dashboard view to update an iframe by sending a post message to Pivot. In data cube view the user also has the option of selecting a dimension from a dropdown menu to send a post message and update the iframe. 
 
 ![screenshot of control-with-url-example](images/data_cube.png "control-with-url-example")
 ![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
