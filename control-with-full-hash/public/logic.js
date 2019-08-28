@@ -1,5 +1,5 @@
 let view = 'dataCube'
-let defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
+let defaultUrl = 'http://localhost:9095/pivot/d/druid_wikipedia';
 let splits = [];
 
 // Toggle between dashboard and dataCube
@@ -10,7 +10,7 @@ function show(show){
     view = 'dataCube';
 
     // Set DataCube default Url
-    defaulturl = 'http://localhost:9095/pivot/d/druid_wikipedia';
+    defaultUrl = 'http://localhost:9095/pivot/d/druid_wikipedia';
 
     path = '/mkurl-dataCube'
     document.getElementById('drop-down').style.display = 'block';
@@ -20,12 +20,12 @@ function show(show){
     path = '/mkurl-dashboard'
 
     // Set Dashboard default Url
-    Defaulturl = 'http://localhost:9095/pivot/c/909c/Example_Dashboard_';
+    defaultUrl = 'http://localhost:9095/pivot/c/909c/Example_Dashboard_';
 
     document.getElementById('drop-down').style.display = 'none';
     document.getElementById('search').className = 'col-12';
   }
-  document.getElementById('pivot').src = defaulturl;
+  document.getElementById('pivot').src = defaultUrl;
 }
 
 //Configure Essence

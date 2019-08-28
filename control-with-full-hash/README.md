@@ -16,19 +16,6 @@ To run:
 The purpose of this example is to show how you can update the contents of an iframe by updating its link using the full hash of an essence. When the user clicks go, or updates the dimension, the setUrl function is called.
 SetUrl takes the user input and creates an essence. This Essence contains the information that Imply needs to update the UI with filtered results. This input is then passed as a parameter to the toFullHash function.
 The essence is then converted to a base 64 encoded string using the lz-String library and formatted to work in a URL. This hash when added to the URL following `http://localhost:9095/pivot/c/` for dashboards or `http://localhost:9095/pivot/d/` for data cubes and used to update the iframe to reflect the applied filter. 
-
-## Getting an App token
-- Download Imply quickstart and follow the quick start guide:
-
-  https://docs.imply.io/on-prem/quickstart
-
-- Navigate to imply-x.x.x/conf-quickstart/pivot/config.yaml and add `enableApiEndpoint: true`
-
-  ![screenshot of settings](images/code.png)
-
-- Open Localhost:9095 and from the side menu navigate to settings. Under settings select API tokens and click on new token to generate an API token.
-
-  ![screenshot of ui-settings](images/settings.png)
   
 ## Import settings 
 To use the exact same set up of Imply for this demo you will need to import the same app settings: 
