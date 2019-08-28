@@ -11,6 +11,8 @@ To run:
 
 `npm start`
 
+-- Note: you often have to hard reload to see your changes --
+
 ## Overview
 
 The purpose of this example is to show how you can update the contents of an iframe by updating its link using the full hash of an essence. When the user clicks go, or updates the dimension, the setUrl function is called.
