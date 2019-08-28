@@ -1,6 +1,6 @@
 # Control with URL
 
-In this example the user can search in either datacube or dashboard view to update an iframe with a new Imply-UI URL that applies a page filter. In datacube view the user also has the option of selecting a dimension from a dropdown menu to generate a new URL and update the iframe. 
+In this example the user can search in either data cube or dashboard view to update an iframe by sending a post message to pivot. In data cube view the user also has the option of selecting a dimension from a dropdown menu to send a post message and update the iframe. 
 
 ![screenshot of control-with-url-example](images/data_cube.png "control-with-url-example")
 ![screenshot of control-with-url-example](images/dashboard.png "control-with-url-example")
@@ -11,23 +11,9 @@ To run:
 
 ## Overview
 
-The purpose of this example is to show how you can update an iframe by updating a URL based on user input. When the user clicks the go button or selects a value from the dropdown menu whatever they have entered is passed as a parameter to the setUrl function.
-SetUrl then makes a fetch request to app.js with the user input as the body of the request. In app.js the header and domain are configured and the user input is added as an element of the filters in essence. Axios is then used to make a post request that returns the new URL to logic.js.
-If the request has been successful and returns a URL then the src of the iframe will update. Notably, if a URL is not returned or if the user does not search anything, then the URL will be set to the default URL.
+The purpose of this example is to show how you can update an iframe sending a post message to Pivot. When the user clicks the go button or selects a value from the dropdown menu whatever they have entered is passed as a parameter to the sendPostMessage function.
+SendPostMessage configures the essence as well as a data object that contains information about the action you want to preform. This data object is sent to the post message receiver in Pivot and the essence updates. Additional operations have been documented below. 
 
-## Getting an App token
-- Download Imply quickstart and follow the quick start guide:
-
-  https://docs.imply.io/on-prem/quickstart
-
-- Navigate to imply-x.x.x/conf-quickstart/pivot/config.yaml and add `enableApiEndpoint: true`
-
-  ![screenshot of settings](images/code.png)
-
-- Open Localhost:9095 and from the side menu navigate to settings. Under settings select API tokens and click on new token to generate an API token.
-
-  ![screenshot of ui-settings](images/settings.png)
-  
 ## Import settings 
 To use the exact same set up of Imply for this demo you will need to import the same app settings: 
 

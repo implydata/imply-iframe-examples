@@ -1,5 +1,5 @@
 {
-  "name": "control-with-url",
+  "name": "control-with-post-message",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
